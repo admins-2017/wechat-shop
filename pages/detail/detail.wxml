@@ -1,0 +1,46 @@
+
+<scroll-view class="main" scroll-y>
+	<view>
+		<swiper class="top" autoplay indicator-dots indicator-color="#fcfcfc" indicator-active-color="#000">
+			<block wx:for="{{spu.spu_img_list}}" wx:key="index">
+				<swiper-item>
+					<image class="img" mode="aspectFill" src="{{item.img}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+
+		<description spu="{{spu}}"></description>
+
+		<view bindtap="addToCart" wx:if="{{!noSpec}}" class="sku-pending">
+			<view class="specs">
+				<view wx:if="{{!skuIntact}}" class="text">请选择:</view>
+				<view wx:else class="text">已选:</view>
+				<view wx:if="{{!skuIntact}}" class="content">{{missingKeys}}</view>
+				<view wx:else class="content">{{currentValues}}</view>
+			</view>
+			<view class="row-right">
+				<l-icon name="right" color="#157658" size="24"></l-icon>
+			</view>
+		</view>
+
+		<view class="explain">
+			<explain texts="{{explain}}"></explain>
+		</view>
+
+		<view class="detail-img-container">
+			<block wx:for="{{spu.spu_detail_img_list}}" wx:key="index">
+				<image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
+			</block>
+		</view>
+	</view>
+
+	
+</scroll-view>
+
+<!-- spu 商品（例如iphone 12 ） sku 商品的规格 例如手机的颜色，型号，运存，版本等-->
+	<!-- 规格分为 规格名 例如 颜色， 规格值 例如 红色 绿色 黑色 白色等 -->
+	<l-popup show="{{showRealm}}" content-align="bottom" >
+		<realm bind:changespec="onChangeSpec" bind:shopping="onShopping" orderWay="{{orderWay}}" spu="{{spu}}"></realm>
+	</l-popup>
+<!-- 监听组件内的事件 -->
+<tabbar cartItemCount="{{cartItemCount}}" class="tabber" bind:gohome="goHome" bind:gocart="goCart" bind:addtocart="addToCart" bind:buy="onBuy"></tabbar>

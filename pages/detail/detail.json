@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "realm":"../../components/realm/index",
+    "tabbar":"../../components/tab-bar/index",
+    "description":"../../components/spu-description/index",
+    "explain":"../../components/sale-explain/index"
+  }
+}

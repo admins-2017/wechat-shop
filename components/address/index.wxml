@@ -1,0 +1,31 @@
+<view class="container">
+  <l-button 
+    wx:if="{{!hasChosen}}" bind:lintap="onChooseAddress" plain="{{true}}"
+    width="360" height="88" shape="square"
+    icon="address1" icon-size="28" icon-color="#157658" l-icon-class="sleeve"
+    l-class="btn"
+  >
+    选择地址
+  </l-button>
+
+  <view wx:if="{{hasChosen}}" class="address-container" bind:tap="onChooseAddress">
+    <view class="address-inner">
+      <view class="base-info"> 
+        <l-icon name="address1" l-class="sleeve" color="#157658"></l-icon>
+        <view class="name">{{address.userName}}</view>
+        <view class="tel">{{address.telNumber}}</view>
+      </view>
+      <view class="address-info">
+        <view class="info">{{address.provinceName}}</view>
+        <view class="info">{{address.cityName}}</view>
+        <view class="info">{{address.countyName}}</view>
+        <view class="info">{{address.detailInfo}}</view>
+      </view>
+    </view>
+    <l-icon style="font-weight: bold" name="right" color="#157658" size="30"></l-icon>
+  </view>
+
+  <image class="bottom-img" src="../../imgs/component-img/bottom@address.png">
+
+  </image>
+</view>

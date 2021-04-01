@@ -1,0 +1,34 @@
+<scroll-view scroll-y wx:if="{{!isEmpty}}" class="container">
+  <block wx:for="{{cartItems}}" wx:key="index">
+    <cart-item item="{{item}}" bind:deleteitem="onDeleteItem" bind:itemcheck="onSingleCheck"
+      bind:countfloat="onCountfloat"
+    ></cart-item>
+  </block>
+</scroll-view> 
+
+<view class="empty-container" wx:if="{{isEmpty}}">
+<l-status-show show="{{isEmpty}}" 
+full-screen="{{false}}" 
+describe="购物车暂无商品" 
+bg-color="f3f3f3"
+type="cart"
+>
+</l-status-show>
+</view>
+
+<view wx:if="{{!isEmpty}}" class="total-container">
+  <view class="data-container">
+    <view class="checkbox-container">
+      <checkbox bind:check="onCheckAll" checked="{{allChecked}}"></checkbox>
+      <view class="all">全选</view>
+    </view>
+    <view class="price-container">
+      <view>合计</view>
+      <l-price value="{{totalPrice}}" color="#157658" count-size="32" unit-size="32">
+      </l-price> 
+    </view>
+  </view>
+  <view class="settlement-btn" bind:tap="onSelect" >
+    <view>结算({{totalSkuCount}})</view>
+  </view>
+</view>

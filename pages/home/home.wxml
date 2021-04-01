@@ -1,0 +1,57 @@
+<!-- 使用loadmore 做底部提醒 如果使用loadmore 则需要将页面所有的内容包起来 -->
+<!-- slot="content" 使用插槽绑定 -->
+<l-loadmore show type="{{loadingType}}" end-text="真的一滴都不剩了..">
+	<view slot="content" class="main">
+		<image class="theme" src="{{locationA.entrance_img}}">
+		</image>
+
+		<swiper class="swiper" indicator-active-color="#157658" indicator-dots autoplay circular>
+			<!-- block 插槽 只是一个占位符 -->
+			<block wx:for="{{bannerList.items}}" wx:key="index">
+				<swiper-item class="">
+					<image class="swiper" src="{{item.img}}">
+
+					</image>
+				</swiper-item>
+			</block>
+		</swiper>
+
+		<!-- <view class="grid">
+        <view class="flex">
+            <view class="items" wx:for="{{grids}}" wx:key="index">
+                <view class="item" hover-class="none" hover-stop-propagation="false">
+                    <image class="item-img" src=" {{item.img}}">
+                       
+                    </image>
+                    <view class="item-title" >
+                        {{item.title}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view> -->
+
+		<category grids="{{grids}}" />
+
+		<image src="{{activity.entrance_img}}" class="activity" data-aname="a-2" bind:tap="onGoToCoupons"/>
+
+		<spu-scroll k-class="spu-scroll-class" theme="{{locationE}}" spu_list="{{locationESup}}" wx:if="{{locationE.online}}" />
+
+		<image src="{{loactionF.entrance_img}}" class="quality"></image>
+
+		<hot-list bannerList="{{locationG}}"></hot-list>
+
+		<image src="{{locationH.entrance_img}}" class="fashion"></image>
+
+		<view class="home-bottom">
+			<image class="bottom-title" src="../../imgs/home/title@interest.png"></image>
+			<!-- water-flow为抽象组件 在组件内部定义了传入组件的名称 
+            固定写法 generic:自定义组件的名称
+            l-water-flow-item 组件定义的传入名称
+            传入的组件必须是引入的组件
+         -->
+			<water-flow generic:l-water-flow-item="spu-preview"></water-flow>
+		</view>
+	</view>
+
+</l-loadmore>

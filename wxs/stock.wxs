@@ -1,0 +1,11 @@
+function stortage(stock){
+  if(stock < 10 && stock > 0){
+    return true
+  }else {
+    return false
+  }
+}
+
+module.exports = {
+  stortage: stortage
+}

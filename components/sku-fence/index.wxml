@@ -1,0 +1,15 @@
+<!-- sku栏 商品规格的一栏组件 -->
+<view class="container">
+  <view class="title">{{fence.title}}</view>
+  <view class="inner-container">
+    <block wx:for="{{fence.cells}}" wx:key="index">
+    <!-- 自定义组件绑定数据  绑定cell在那一列 为cell提供具体的列号 data-clo 列号-->
+    <!-- bind:celltap="onCelltap" 也可以写成反向传递 -->
+        <sku-cell  row="{{row}}" clo="{{index}}" class="cell" cell="{{item}}"></sku-cell>
+    </block>
+  </view>
+  <!-- 下分割线 -->
+  <view class="hr">
+
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<!--单元格对象组件 -->
+<view  bindtap="onTap" class="container {{c.statusStyle(cell.status).outer}}">
+  <view class="inner-container {{c.statusStyle(cell.status).inner}}">
+    <image src="{{cell.skuImg}}" mode="aspectFit" class="img" wx:if="{{cell.skuImg}}"></image>
+    <text>{{cell.title}}</text>
+  </view>
+</view>
+
+<wxs module="c">
+  // 动态给标签设置样式
+  function statusStyle(status){
+    // 如果状态是禁用
+    if(status === 'forbidden'){
+      return {
+        outer: 'forbidden',
+        inner: ''
+      }
+    }
+    // 如果状态是已选中
+    if(status === 'selected'){
+      return {
+        outer: 'selected-outer',
+        inner: 'selected-inner'
+      }
+    }
+  }
+
+  module.exports.statusStyle = statusStyle
+</wxs>

@@ -1,0 +1,26 @@
+<wxs src="../../wxs/price.wxs" module="price"></wxs>
+<!-- 绑定view的点击事件  bindtap="onItemTap"  onItemTap函数-->
+<!-- data-spuId 绑定商品的id -->
+<view class="container" bindtap="onItemTap" data-spu-id="{{data.id}}">
+    <!-- bind:load="onImage" 获取图片原始高宽 动态设置图片宽高-->
+    <!-- 获取宽高并设置 style="width:{{w}}rpx;height:{{h}}rpx;" -->
+    <image class="img" mode="widthFix" src="{{data.img}}"></image>
+    <view class="content-container">
+        <view class="title">{{data.title}}</view>
+        <view class="tags">
+            <block wx:for="{{tags}}" wx:key="index">
+                <l-tag type="reading" l-class="l-tag" size="super-mini">{{item}}</l-tag>
+            </block>
+        </view>
+        <view class="price-row">
+            <!-- 调用wxs中的方法来判断主价格和划线价格 -->
+            <l-price color="#157658" value-size="28" unit-size="20"
+                value="{{price.mainPrice(data.price,data.discount_price)}}">
+            </l-price>
+            <!-- {{data.discount_price?true:false}} 判断是否存在折扣价格 存在则显示划线价格 -->
+            <l-price l-class="discount-class" color="#999" value-size="22" wx:if="{{data.discount_price?true:false}}" deleted
+                value="{{price.slashedPrice(data.price,data.discount_price)}}"></l-price>
+        </view>
+        <view class="subtitle">{{data.subtitle}}</view>
+    </view>
+</view>

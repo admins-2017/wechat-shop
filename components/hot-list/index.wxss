@@ -1,0 +1,39 @@
+/* 引入外部css样式 */
+@import "../../wxss/sleeve.wxss";
+
+.contaienr{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40rpx;
+  background-color: white;
+}
+
+.title{
+  width: 690rpx;
+  height: 90rpx;
+}
+
+.inner-contaienr{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left{
+  display: flex;
+  width: 346rpx;
+  height: 522rpx;
+}
+
+.right-contaienr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right {
+  width: 400rpx;
+  height: 258rpx;
+  display: flex;
+}

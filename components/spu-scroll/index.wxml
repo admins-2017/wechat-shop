@@ -1,0 +1,22 @@
+<!-- 引入wxs 对字符串长度做过滤及省略 引入外部wxs ，module 定义别名 -->
+<wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs>
+<wxs src="../../wxs/price.wxs" module="price"></wxs>
+
+<view class="container k-class">
+  <image class="title" src="{{theme.title_img}}">
+  </image>
+  <!-- 开启flex布局 不然flex不生效 -->
+  <scroll-view class="srcoll" enable-flex scroll-x>
+    <block wx:for="{{spu_list}}" wx:key="index">
+      <view class="detail" hover-class="none" bindtap="onItemTap" data-spu-id="{{item.id}}"hover-stop-propagation="false">
+        <image class="img" src="{{item.img}}">
+        </image>
+        <view class="text">
+          {{item.title.length>9?s.substring(item.title,0,7)+'...':item.title}}
+        </view>
+        <l-price color="#157658" value="{{price.mainPrice(item.price,item.discount_price)}}" size="26rpx" unit-size="24" >
+        </l-price>
+      </view>
+    </block>
+  </scroll-view>
+</view>

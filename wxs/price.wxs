@@ -1,0 +1,30 @@
+/**
+ * 主价格
+ */
+function mainPrice(price,discountPrice){
+  // 如果折扣价格不存在
+  if(!discountPrice){
+    return price;
+  }
+  else {
+    return discountPrice;
+  }
+}
+
+
+/**
+ * 划线的价格
+ */
+function slashedPrice(price,discountPrice){
+  // 如果折扣价格存在 则price为划线的价格
+  if(discountPrice){
+    return price
+  }else{
+    return
+  }
+}
+
+module.exports={
+  mainPrice:mainPrice,
+  slashedPrice:slashedPrice
+}

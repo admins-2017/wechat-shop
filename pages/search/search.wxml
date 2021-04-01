@@ -1,0 +1,55 @@
+<view class="header">
+	<l-search-bar placeholder="输入商品名称" maxlength="10" bg-color="#f1f1f1" l-class="input" bind:linconfirm="onSearch" bind:lincancel="onCancel">
+	</l-search-bar>
+</view>
+
+<view class="container">
+	<view wx:if="{{!search}}">
+		<view class="history-container" wx:if="{{historyTags.length !== 0}}">
+			<view class="history-title">
+				<view class="left">
+					<view class="slide">
+					</view>
+					<view class="text">历史搜索</view>
+				</view>
+				<view class="icon" bind:tap="onDeleteHistory">
+					<l-icon name="delete" color="#999999" size="32"></l-icon>
+				</view>
+			</view>
+			<view class="history-tags">
+				<block wx:for="{{historyTags}}" wx:key="index">
+					<l-tag name="{{item}}" l-class="tag" bind:lintap="onSearch">
+						{{item}}
+					</l-tag>
+				</block>
+			</view>
+		</view>
+		<view class="history-container">
+			<view class="history-title">
+				<view class="left">
+					<view class="slide">
+					</view>
+					<view class="text">热门搜索</view>
+				</view>
+			</view>
+			<view class="history-tags">
+				<block wx:for="{{hotTags}}" wx:key="index">
+					<l-tag name="{{item.title}}" select="{{item.highlight === 1}}" l-select-class="tag-selected" l-class="tag" bind:lintap="onSearch">
+						{{item.title}}
+					</l-tag>
+				</block>
+			</view>
+		</view>
+	</view>
+	<view wx:else class="cards">
+		<l-loadmore show="{{bottomLoading}}" end-text="- 没有更多了 -" loading-text="努力加载中..." type="{{loadingType}}">
+		<view slot="content" hidden="{{!search}}" class="spu-bottom">
+			<block wx:for="{{items}}" wx:key="index">
+				<spu-card data="{{item}}"></spu-card>
+			</block>
+			</view>
+		</l-loadmore>
+	</view>
+
+	<l-loading></l-loading>
+</view>

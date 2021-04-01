@@ -1,0 +1,26 @@
+<!-- 底部tab-bar -->
+<view class="container">
+  <view class="icons">
+    <view bind:tap="onGoToHome">
+      <!-- l-class="sleeve" 引用自定义图标 -->
+      <l-icon name="home" size="46" color="#157658" l-class="sleeve"></l-icon>
+      <view class="text">
+        首页
+      </view>
+    </view>
+    <view bind:tap="onGoToCart">
+      <l-badge shape="circle" value="{{cartItemCount}}" show="{{cartItemCount !== 0}}">
+        <l-icon name="cart" color="#157658" size="46" l-class="sleeve"></l-icon>
+      </l-badge>
+      <view class="text">
+        购物车
+      </view>
+    </view>
+  </view>
+  <view class="cart btn-font" bind:tap="onAddToCart">
+    <view>加入购物车</view>
+  </view>
+  <view class="buy btn-font" bind:tap="onBuy">
+    <view>立即购买</view>
+  </view>
+</view>
