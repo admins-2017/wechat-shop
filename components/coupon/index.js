@@ -38,7 +38,8 @@ Component({
 
     methods: {
         async onGetCoupon(event) {
-            if (this.data.userCollected) {
+            // onGetCoupon 判断当前优惠券是否被领取 如果领取则跳转
+            if (this.data.onGetCoupon) {
                 wx.switchTab({
                     url: `/pages/category/category`
                 })
@@ -52,6 +53,7 @@ Component({
             let msg;
             try {
                 msg = await Coupon.collectCoupon(couponId)
+                // 捕获请求服务器抛出的异常 从http类中抛出的异常
             } catch (e) {
                 if (e.errorCode === 40006) {
                     this.setUserCollected()
@@ -60,7 +62,6 @@ Component({
                 return
             }
             if (msg.code === 0) {
-                console.log(123123)
                 this.setUserCollected()
                 showToast('领取成功，在"我的优惠券"中查看')
             }

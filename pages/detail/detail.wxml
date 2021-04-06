@@ -11,6 +11,18 @@
 
 		<description spu="{{spu}}"></description>
 
+		<view bind:tap="onGoToCouponCenter" class="coupon-container" wx:if="{{coupons.length!=0}}">
+        <view class="coupon-left">
+            <block wx:for="{{coupons}}" wx:key="index">
+                <coupon-mini text="{{item.title}}"></coupon-mini>
+            </block>
+        </view>
+        <view class="coupon-right">
+            <text>立即领取</text>
+            <l-icon name="right" color="#157658" size="24"></l-icon>
+        </view>
+    </view>
+
 		<view bindtap="addToCart" wx:if="{{!noSpec}}" class="sku-pending">
 			<view class="specs">
 				<view wx:if="{{!skuIntact}}" class="text">请选择:</view>
@@ -26,12 +38,12 @@
 		<view class="explain">
 			<explain texts="{{explain}}"></explain>
 		</view>
-
+<!-- 
 		<view class="detail-img-container">
 			<block wx:for="{{spu.spu_detail_img_list}}" wx:key="index">
 				<image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
 			</block>
-		</view>
+		</view> -->
 	</view>
 
 	

@@ -1,4 +1,7 @@
 const { Activity } = require("../../model/activity")
+import { CouponCenterType } from '../../core/enum';
+import { Coupon } from '../../model/coupon';
+
 
 // pages/coupon/coupon.js
 Page({
@@ -15,14 +18,28 @@ Page({
    */
   onLoad:async function (options) {
     const aName = options.name
-    const type = options.type
+        const type = options.type
+        const cid = options.cid
 
-    let coupons 
-    const activity =await Activity.getActivityByName(aName)
-    coupons = activity.coupons
-    this.setData({
-      coupons
-    })
+        let coupons
+        // 判断是否从活动入口进入
+        if (type === CouponCenterType.ACTIVITY) {
+            const activity = await Activity.getActivityWithCoupon(aName)
+            coupons = activity.coupons
+        }
+        // 判断是否从商品详情入口进入
+        if (type === CouponCenterType.SPU_CATEGORY) {
+            // 获取分类下所有优惠券
+            coupons = await Coupon.getCouponsByCategory(cid)
+            // 获取所有全场券
+            const wholeStoreCoupons = await Coupon.getWholeStoreCoupons()
+            // 追加到优惠券中
+            coupons = coupons.concat(wholeStoreCoupons)
+        }
+
+        this.setData({
+            coupons
+        });
   },
 
   /**

@@ -1,9 +1,10 @@
-import { ShoppingWay } from '../../core/enum';
+import { ShoppingWay,CouponCenterType } from '../../core/enum';
 // pages/detail/detail.js
 import {Spu} from '../../model/spu'
 import { SaleExplain } from '../../model/sale-explain';
 import { Cart } from '../../model/cart';
 import { CartItem } from '../../model/cart-item';
+import { Coupon } from '../../model/coupon'
 
 
 Page({
@@ -45,6 +46,13 @@ Page({
     })
   },
 
+  onGoToCouponCenter(event) {
+    const type = CouponCenterType.SPU_CATEGORY
+    const cid = this.data.spu.category_id
+    wx.navigateTo({
+        url: `/pages/coupon/coupon?cid=${cid}&type=${type}`
+    })
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -53,10 +61,13 @@ Page({
     const spuId = options.spuId;
     // 获取商品详情
     const spu = await Spu.getDetail(spuId)
+    // 获取分类的优惠券
+    const coupons = await Coupon.getTop2CouponsByCategory(spu.category_id)
     const explain = await SaleExplain.getFixed()
     this.setData({
       spu,
-      explain
+      explain,
+      coupons
     })
     this.updateCartItemCount()
   },

@@ -2,7 +2,6 @@
 
 <view class="container bg-{{_status}}">
     <view class="inner-container {{_status===1?'touch-disable':''}}">
-
         <view class="top">
             <view style="color:{{s.couponColorStatus(_status)}}" class="price-container">
                 <view wx:if="{{_coupon.type === 2}}">

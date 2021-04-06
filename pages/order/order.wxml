@@ -1,8 +1,7 @@
 <view class="container">
   <address bind:address="onChooseAddress"></address>
-
   <view class="order-item-container">
-    <block wx:for="{{orderItem}}" wx:key="{{item.sku.id}}">
+    <block wx:for="{{orderItems}}" wx:key="index">
       <order-sku-item my-class="orderItem" order-item="{{item}}"></order-sku-item>
     </block>
   </view>
