@@ -36,10 +36,20 @@ const CouponCenterType = {
 }
 
 
+const CouponStatus = {
+  CAN_COLLECT: 0,
+  AVAILABLE: 1,
+  USED: 2,
+  EXPIRED: 3
+}
+
+
+
 export{
   CellStatus,
   ShoppingWay,
   SpuListType,
   OrderExceptionType,
-  CouponCenterType
+  CouponCenterType,
+  CouponStatus
 }

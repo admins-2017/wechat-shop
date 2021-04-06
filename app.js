@@ -1,4 +1,5 @@
 const { Cart } = require("./model/cart")
+const { Token } = require("./model/token")
 
 // app.js
 App({
@@ -12,6 +13,10 @@ App({
         index: 2,
       })
     }
+    
+    // 保证缓存中的token可用
+    const token = new Token()
+    token.verify()
   },
   globalData: {
     userInfo: null

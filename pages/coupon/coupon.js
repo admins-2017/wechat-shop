@@ -1,3 +1,5 @@
+const { Activity } = require("../../model/activity")
+
 // pages/coupon/coupon.js
 Page({
 
@@ -5,21 +7,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    coupons:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad:async function (options) {
+    const aName = options.name
+    const type = options.type
 
+    let coupons 
+    const activity =await Activity.getActivityByName(aName)
+    coupons = activity.coupons
+    this.setData({
+      coupons
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**

@@ -68,6 +68,8 @@
     "counter":"/components/counter/index",
     "l-loadmore":"/miniprogram_npm/lin-ui/loadmore/index",
     "spu-preview": "/components/spu-preview/index",
-    "l-status-show":"/miniprogram_npm/lin-ui/status-show/index"
+    "l-status-show":"/miniprogram_npm/lin-ui/status-show/index",
+    "coupon": "/components/coupon/index"
+
   }
 }

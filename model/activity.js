@@ -6,6 +6,12 @@ class Activity {
       url: `/activity/name/${this.names}`,
     });
   }
+
+  static async getActivityByName(name) {
+    return await Http.request({
+      url: `/activity/name/${name}/with_spu`,
+    });
+  }
 }
 
 export { Activity };
