@@ -70,7 +70,7 @@
     "spu-preview": "/components/spu-preview/index",
     "l-status-show":"/miniprogram_npm/lin-ui/status-show/index",
     "coupon": "/components/coupon/index",
-    "coupon-mini": "/components/coupon-mini/index"
-
+    "coupon-mini": "/components/coupon-mini/index",
+    "coupon-picker": "/components/coupon-picker/index"
   }
 }

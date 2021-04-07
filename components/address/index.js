@@ -15,12 +15,16 @@ Component({
       // 从缓存中获取用户地址
       const address = Address.getLoacl()
       // 判断缓存中是否有地址 如果有就绑定地址
-      if(address){
+      if (address) {
         this.setData({
-          address,
-          hasChosen:true
+            address,
+            hasChosen: true
         })
-      }
+        this.triggerEvent('address', {
+            address
+        })
+    }
+
     }
   },
 
@@ -37,7 +41,6 @@ Component({
    */
   methods: {
     onChooseAddress(event){
-      console.log('执行onChooseAddress')
       this.getUserAddress()
     },
     // 获取用户地址
@@ -58,6 +61,9 @@ Component({
           hasChosen:true
         })
         Address.setLoacl(res)
+        this.triggerEvent('address', {
+          address: res
+        })
       }
     }
   }

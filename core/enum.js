@@ -35,6 +35,11 @@ const CouponCenterType = {
   SPU_CATEGORY: 'spu_category'
 }
 
+const CouponType = {
+  FULL_MINUS: 1,
+  FULL_OFF: 2,
+  NO_THRESHOLD_MINUS: 3
+}
 
 const CouponStatus = {
   CAN_COLLECT: 0,
@@ -60,5 +65,6 @@ export{
   OrderExceptionType,
   CouponCenterType,
   CouponStatus,
-  CouponOperate
+  CouponOperate,
+  CouponType
 }

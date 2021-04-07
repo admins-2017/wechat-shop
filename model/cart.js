@@ -306,6 +306,21 @@ class Cart {
     return skuIds
   }
 
+  /**
+   * 将选中的商品删除
+   */
+  removeCheckedItems() {
+    const cartData = this._getCartData()
+    // 遍历购物车
+    for (let i = 0; i < cartData.items.length; i++) {
+      // 如果选中 则移除
+        if (cartData.items[i].checked) {
+            cartData.items.splice(i, 1)
+        }
+    }
+    this._refreshStorage()
+}
+
   // 根据sku id 获取到用户选择的sku 数量
   getSkuCountBySkuId(skuId){
     const cartData  = this._getCartData()
