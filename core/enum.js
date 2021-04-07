@@ -44,6 +44,14 @@ const CouponStatus = {
 }
 
 
+/**
+ * 优惠券选中状态
+ */
+const CouponOperate = {
+  PICK: 'pick',
+  UNPICK: 'unpick'
+}
+
 
 export{
   CellStatus,
@@ -51,5 +59,6 @@ export{
   SpuListType,
   OrderExceptionType,
   CouponCenterType,
-  CouponStatus
+  CouponStatus,
+  CouponOperate
 }

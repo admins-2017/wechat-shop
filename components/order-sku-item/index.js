@@ -1,4 +1,5 @@
-// components/order-sku-item/index.js
+import {parseSpecValue, parseSpecValueArray} from "../../utils/sku";
+
 Component({
   /**
    * 组件的属性列表
@@ -16,11 +17,9 @@ Component({
   },
   observers:{
     'orderItem':function(orderItem){
-      console.log("aaaa")
-      console.log(orderItem)
       const specValues  = orderItem.spec_values
       this.setData({
-        // specValuesText:specValues?
+        specValuesText:specValues?parseSpecValueArray(specValues):parseSpecValue(orderItem.specs)
       })
     }
   },

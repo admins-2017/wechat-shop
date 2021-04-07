@@ -1,8 +1,25 @@
 <view class="container">
   <address bind:address="onChooseAddress"></address>
+  
   <view class="order-item-container">
     <block wx:for="{{orderItems}}" wx:key="index">
       <order-sku-item my-class="orderItem" order-item="{{item}}"></order-sku-item>
     </block>
   </view>
+
+  <view class="temp-price-container">
+        <view class="origin-price-container">
+            <text>商品总金额：</text>
+            <l-price value="{{totalPrice}}" size="24" color="#333"></l-price>
+        </view>
+        <view class="discount-price-container">
+            <text>优惠金额：</text>
+            <view class="discount-price">
+                <text class="minus-tag {{discountMoney==0?'':'discount-color'}}">-</text>
+                <l-price value="{{discountMoney}}" size="24" color="{{discountMoney==0?'#333':'#F55670'}}">
+
+                </l-price>
+            </view>
+        </view>
+    </view>
 </view>
