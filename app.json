@@ -8,7 +8,10 @@
     "pages/search/search",
     "pages/spu-list/spu-list",
     "pages/order/order",
-    "pages/coupon/coupon"
+    "pages/coupon/coupon",
+    "pages/pay-success/pay-success",
+    "pages/my-order/my-order",
+    "pages/order-detail/order-detail"
   ],
   "window":{
     "backgroundTextStyle":"light",

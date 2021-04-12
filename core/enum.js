@@ -35,6 +35,17 @@ const CouponCenterType = {
   SPU_CATEGORY: 'spu_category'
 }
 
+
+const OrderStatus = {
+  ALL: 0,
+  UNPAID: 1,
+  PAID: 2,
+  DELIVERED: 3,
+  FINISHED: 4,
+  CANCELED: 5,
+}
+
+
 const CouponType = {
   FULL_MINUS: 1,
   FULL_OFF: 2,
@@ -66,5 +77,6 @@ export{
   CouponCenterType,
   CouponStatus,
   CouponOperate,
-  CouponType
+  CouponType,
+  OrderStatus
 }

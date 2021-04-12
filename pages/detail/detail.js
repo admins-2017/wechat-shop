@@ -92,6 +92,12 @@ Page({
       cart.addItem(cartItem)
       this.updateCartItemCount()
     }
+    // 判断是否立即购买
+    if(event.detail.orderWay === ShoppingWay.BUY){
+      wx.navigateTo({
+          url:`/pages/order/order?sku_id=${sku.id}&count=${count}&way=${ShoppingWay.BUY}`
+      })
+  }
 
   },
 

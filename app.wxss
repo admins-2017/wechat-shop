@@ -1,12 +1,12 @@
 /* 引入自定义的图标库 项目中在线连接 生成unicode */
 @font-face {
   font-family: 'sleeve';  /* project id 2408604 */
-  src: url('//at.alicdn.com/t/font_2408604_49rmdpy7gru.eot');
-  src: url('//at.alicdn.com/t/font_2408604_49rmdpy7gru.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2408604_49rmdpy7gru.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2408604_49rmdpy7gru.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2408604_49rmdpy7gru.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2408604_49rmdpy7gru.svg#sleeve') format('svg');
+  src: url('//at.alicdn.com/t/font_2408604_8nlftddlseh.eot');
+  src: url('//at.alicdn.com/t/font_2408604_8nlftddlseh.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2408604_8nlftddlseh.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2408604_8nlftddlseh.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2408604_8nlftddlseh.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2408604_8nlftddlseh.svg#sleeve') format('svg');
 }
 
 /* 与l-icon的字体格式区分 */
@@ -30,4 +30,20 @@
 
 .l-icon-address1::before{
   content: "\e66b";
+}
+
+.l-icon-paid::before{
+  content: "\e637";
+}
+
+.l-icon-unpaid::before{
+  content: "\e646";
+}
+
+.l-icon-delivered::before{
+  content: "\e607";
+}
+
+.l-icon-over::before{
+  content: "\e64d";
 }

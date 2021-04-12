@@ -4,6 +4,7 @@ import {accAdd} from "../utils/number";
 import {Http} from "../utils/http";
 import {Paging} from "../utils/paging";
 
+
 class Order {
   orderItems
   localItemCount
@@ -106,6 +107,15 @@ getTotalPriceEachCategory(categoryId) {
     }, 0)
     return price
 }
+  /**
+   * 获取订单详情
+   * @param {*} oid 订单id 
+   */
+  static async getDetail(oid) {
+    return Http.request({
+        url: `/order/detail/${oid}`
+    })
+  }
 
 /**
  * 判断商品是否属于当前分类
@@ -121,6 +131,39 @@ _isItemInCategories(orderItem, categoryId) {
   }
   return false
 }
+
+  static async getUnpaidCount() {
+    const orderPage = await Http.request({
+        url: `/order/status/unpaid`,
+        data:{
+            start:0,
+            count:1
+        }
+    })
+    return orderPage.total
+  }
+
+  static async getPaidCount() {
+    const orderPage = await Http.request({
+        url: `/order/by/status/${OrderStatus.PAID}`,
+        data:{
+            start:0,
+            count:1
+        }
+    })
+    return orderPage.total
+  }
+
+  static async getDeliveredCount() {
+    const orderPage = await Http.request({
+        url: `/order/by/status/${OrderStatus.DELIVERED}`,
+        data: {
+            start:0,
+            count:1
+        }
+    })
+    return orderPage.total
+  }
 }
 
 export{

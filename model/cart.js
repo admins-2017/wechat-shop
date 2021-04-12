@@ -311,13 +311,13 @@ class Cart {
    */
   removeCheckedItems() {
     const cartData = this._getCartData()
+    console.log(cartData)
     // 遍历购物车
     for (let i = 0; i < cartData.items.length; i++) {
-      // 如果选中 则移除
-        if (cartData.items[i].checked) {
-            cartData.items.splice(i, 1)
-        }
-    }
+      if (cartData.items[i].checked) {
+          cartData.items.splice(i, 1)
+      }
+  }
     this._refreshStorage()
 }
 

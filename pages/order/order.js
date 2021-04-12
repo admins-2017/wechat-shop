@@ -6,7 +6,8 @@ import {Sku} from '../../model/sku'
 import { Coupon } from '../../model/coupon'
 import { CouponBO } from '../../model/coupon-bo'
 import {CouponOperate, ShoppingWay} from "../../core/enum";
-
+import { OrderPost } from "../../model/order-post"
+import { Payment } from "../../model/payment" 
 const cart = new Cart()
 Page({
 
@@ -38,12 +39,21 @@ Page({
 
     const shoppingWay = options.way
     this.data.shoppingWay = shoppingWay
+    
+    // 判断是立即购买下单还是购物车页面下单
+    if (shoppingWay === ShoppingWay.BUY) {
+      const skuId = options.sku_id
+      const count = options.count
+      orderItems = await this.getSingleOrderItems(skuId, count)
+      localItemCount = 1
+  } else {
+      // 获取缓存中所有选中的item的skuid
+      const skuIds = cart.getCheckedSkuIds()
+      // 获取购物车选中的商品规格id
+      orderItems = await this.getCartOrderItems(skuIds)
+      localItemCount = skuIds.length
+  }
 
-    // 获取缓存中所有选中的item的skuid
-    const skuIds = cart.getCheckedSkuIds()
-    // 获取购物车选中的商品规格id
-    orderItems = await this.getCartOrderItems(skuIds)
-    localItemCount = skuIds.length
     const order = new Order(orderItems,localItemCount)
     this.data.order = order
     try{
@@ -73,6 +83,16 @@ Page({
    const orderItems = this.packageOrderItems(skus)
    return orderItems
   },
+
+  /**
+   * 同步数据并转换为orderItem对象
+   * @param {*} skuId 
+   * @param {*} count 
+   */
+  async getSingleOrderItems(skuId, count) {
+    const skus = await Sku.getSkuByIds(skuId)
+    return [new OrderItem(skus[0], count)];
+},
 
   // 将服务器返回最新的商品信息和用户选择的数量实例化到orderItem对象中
   packageOrderItems(skus){
@@ -123,8 +143,10 @@ Page({
     }
     // 如果订单提交成功 删除购物车中已提交的商品
     if (this.data.shoppingWay === ShoppingWay.CART) {
+        console.log("执行删除")
         cart.removeCheckedItems()
     }
+
     // 支付 小程序/前端 支付
     // 支付参数 调用 API
     // 支付 wx.requestPayment(params)
@@ -134,16 +156,19 @@ Page({
         fullScreen: true,
         color: "#157658"
     })
-    const payParams = await Payment.getPayParams(oid)
-    if (!payParams) {
-        return
-    }
+    // const payParams = await Payment.getPayParams(oid)
+    // if (!payParams) {
+    //     return
+    // }
+    // 是否完成支付 未支付或支付失败抛出异常
     try {
-        const res = await wx.requestPayment(payParams)
+        // 支付成功跳转
+        // const res = await wx.requestPayment(payParams)
         wx.redirectTo({
             url: `/pages/pay-success/pay-success?oid=${oid}`
         })
     } catch (e) {
+      // 支付失败
         wx.redirectTo({
             url: `/pages/my-order/my-order?key=${1}`
         })
