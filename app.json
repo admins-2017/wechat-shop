@@ -74,6 +74,8 @@
     "l-status-show":"/miniprogram_npm/lin-ui/status-show/index",
     "coupon": "/components/coupon/index",
     "coupon-mini": "/components/coupon-mini/index",
-    "coupon-picker": "/components/coupon-picker/index"
+    "coupon-picker": "/components/coupon-picker/index",
+    "l-avatar":"/miniprogram_npm/lin-ui/avatar/index",
+    "l-list":"/miniprogram_npm/lin-ui/list/index"
   }
 }

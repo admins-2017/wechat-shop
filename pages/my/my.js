@@ -16,6 +16,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: async function (options) {
+        // 获取当前可用的优惠券
         const coupons = await Coupon.getMyCoupons(CouponStatus.AVAILABLE)
         this.setData({
             couponCount: coupons.length

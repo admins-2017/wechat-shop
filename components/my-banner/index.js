@@ -18,10 +18,10 @@ Component({
         couponCount:Number
     },
 
+    // 页面加载判断是否有用户信息
     lifetimes: {
         async attached() {
-            // wx.getUserInfo()
-            console.log(this.properties.couponCount)
+            // 如果没有用户信息
             if (!await this.hasAuthUserInfo()) {
                 this.setData({
                     showLoginBtn: true
@@ -40,7 +40,7 @@ Component({
      */
     methods: {
         async onAuthUserInfo(event) {
-            console.log(event.detail)
+            // 判断用户是否授权查询用户信息
             if (event.detail.userInfo) {
                 const success = await User.updateUserInfo(event.detail.userInfo)
                 this.setData({
@@ -49,9 +49,14 @@ Component({
             }
         },
 
+        /**
+         * 获取用户授权
+         */
         async hasAuthUserInfo() {
             const setting = await promisic(wx.getSetting)();
+            // 判断是否有用户信息授权
             const userInfo = setting.authSetting['scope.userInfo']
+            // 是否存在用户信息
             return !!userInfo;
         },
 
