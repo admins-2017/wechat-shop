@@ -9,7 +9,6 @@ Component({
      * 组件的属性列表
      */
     externalClasses: ['l-class'],
-    // behaviors: [orderStatusBehavior],
     properties: {
         item: Object,
     },
@@ -18,12 +17,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        // specValuesText: null,
-        // statusText: '',
-
         _item:Object,
-        // order:Object
-
     },
 
 
@@ -32,11 +26,14 @@ Component({
             if (!item) {
                 return
             }
+            console.log("items")
+            console.log(item)
+
             const order = new OrderDetail(item)
-            // // this.setData({
-            // //     statusText: this.orderStatusText(item.status),
-            // // })
-            // this.correctOrderStatus(item)
+
+            console.log("order")
+            console.log(order)
+
             this.setData({
                 _item:order
             })
@@ -92,10 +89,6 @@ Component({
                 console.error(e)
                 wx.lin.hideLoading()
             }
-            // //必须使用redirectTo防止Order页面被频繁打开
-            // wx.redirectTo({
-            //     url: `/pages/my-order/my-order?key=${payStatus}`
-            // })
         }
     }
 })

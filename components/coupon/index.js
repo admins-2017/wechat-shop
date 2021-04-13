@@ -24,20 +24,27 @@ Component({
         userCollected: false
     },
 
+
     observers: {
-        'coupon': function (coupon) {
-            console.log(coupon)
+        'coupon,status': function (coupon,status) {
             if (!coupon) {
                 return
             }
             this.setData({
                 _coupon: new CouponData(coupon),
+                _status: status
             })
         }
     },
 
     methods: {
         async onGetCoupon(event) {
+            if(this.data._status!=0){
+                wx.switchTab({
+                    url: `/pages/category/category`
+                })
+                return  
+            }
             // onGetCoupon 判断当前优惠券是否被领取 如果领取则跳转
             if (this.data.onGetCoupon) {
                 wx.switchTab({

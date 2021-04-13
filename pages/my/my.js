@@ -37,6 +37,7 @@ Page({
 
     async onMgrAddress(event) {
         const authStatus = await this.hasAuthorizedAddress()
+        // 如果未授权显示授权窗口
         if (authStatus === AuthAddress.DENY) {
             this.setData({
                 showDialog: true
@@ -46,9 +47,12 @@ Page({
         this.openAddress()
     },
 
+    /**
+     * 获取用户授权
+     */
     async hasAuthorizedAddress() {
         const setting = await promisic(wx.getSetting)();
-        console.log(setting)
+        // 获取微信收货地址授权
         const addressSetting = setting.authSetting['scope.address']
         if (addressSetting === undefined) {
             return AuthAddress.NOT_AUTH
@@ -57,10 +61,14 @@ Page({
             return AuthAddress.DENY
         }
         if (addressSetting === true) {
+            // 返回已授权
             return AuthAddress.AUTHORIZED
         }
     },
 
+    /**
+     * 打开微信地址
+     */
     async openAddress() {
         let res;
         res = await promisic(wx.chooseAddress)();

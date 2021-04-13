@@ -1,0 +1,20 @@
+page{
+  background-color: #f5f5f5;
+}
+
+.l-segment {
+  background-color: #ffffff;
+  z-index: 999 !important;
+  position: fixed;
+  top:0;
+}
+
+.line {
+  width: 40rpx !important;
+}
+
+.containers{
+  margin-top: 90rpx;
+  display: flex;
+  justify-content: center;
+}

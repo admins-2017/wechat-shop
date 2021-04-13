@@ -7,7 +7,7 @@
     <l-segment-item tab="已完成" key="4"></l-segment-item>
 </l-segment>
 <view class="container" wx:if="{{!empty}}">
-    <l-loadmore show="{{bottomLoading}}" type="{{loadingType}}" loading-text="努力加载中..." end-text="—— 7七月作品 ——">
+    <l-loadmore show="{{bottomLoading}}" type="{{loadingType}}" loading-text="努力加载中..." end-text="—— 巨蜥开源 ——">
         <view slot="content" class="container">
             <block wx:for="{{items}}" wx:key="index">
                 <my-order-item bind:paysuccess="onPaySuccess" class="item" item="{{item}}"></my-order-item>

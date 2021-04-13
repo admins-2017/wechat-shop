@@ -59,6 +59,11 @@ const CouponStatus = {
   EXPIRED: 3
 }
 
+const AuthAddress = {
+  DENY: 'deny',
+  NOT_AUTH: 'not_auth',
+  AUTHORIZED: 'authorized'
+}
 
 /**
  * 优惠券选中状态
@@ -78,5 +83,6 @@ export{
   CouponStatus,
   CouponOperate,
   CouponType,
-  OrderStatus
+  OrderStatus,
+  AuthAddress
 }

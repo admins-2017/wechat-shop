@@ -3,12 +3,13 @@ import {Order} from "../../model/order";
 import {OrderStatus} from "../../core/enum";
 
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
+        // 选中的key
         activeKey:OrderStatus.ALL,
+        // 数据
         items:[],
         loadingType:'loading',
         bottomLoading:true,
@@ -29,7 +30,6 @@ Page({
     },
 
     async initItems(activeKey) {
-
         wx.lin.hideEmpty()
         this.setData({
             activeKey,
@@ -37,7 +37,6 @@ Page({
         })
         this.data.paging = this.getPaging(activeKey)
         const data = await this.data.paging.getMoreData()
-        console.log(data)
         if(!data){
             return
         }
@@ -74,9 +73,10 @@ Page({
             this.empty()
             return
         }
-        if (data.accumulator.length !== 0){
+
+        if (data.allItems.length !== 0){
             this.setData({
-                items:data.accumulator,
+                items:data.allItems,
                 bottomLoading:true
             });
         }
@@ -102,7 +102,6 @@ Page({
         wx.navigateTo({
             url:`/pages/pay-success/pay-success?oid=${oid}`
         })
-        // this.initItems(2)
     }
 
 })

@@ -164,6 +164,25 @@ _isItemInCategories(orderItem, categoryId) {
     })
     return orderPage.total
   }
+  
+  /**
+   * 获取订单根据状态
+   * @param {*} status 
+   */
+  static getPagingByStatus(status) {
+    return new Paging({
+        url:`/order/by/status/${status}`
+    })
+  }
+  
+  /**
+   * 获取待付款订单
+   */
+  static getPagingUnpaid() {
+    return new Paging({
+        url:`/order/status/unpaid`
+    })
+}
 }
 
 export{

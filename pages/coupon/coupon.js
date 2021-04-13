@@ -2,8 +2,6 @@ const { Activity } = require("../../model/activity")
 import { CouponCenterType } from '../../core/enum';
 import { Coupon } from '../../model/coupon';
 
-
-// pages/coupon/coupon.js
 Page({
 
   /**
@@ -24,7 +22,7 @@ Page({
         let coupons
         // 判断是否从活动入口进入
         if (type === CouponCenterType.ACTIVITY) {
-            const activity = await Activity.getActivityWithCoupon(aName)
+            const activity = await Activity.getActivityByName(aName)
             coupons = activity.coupons
         }
         // 判断是否从商品详情入口进入

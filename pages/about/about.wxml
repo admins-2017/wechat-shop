@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="header">
+    <image src="/imgs/logo.png" class="logo"></image>
+    <view class="content">
+      <block wx:for="{{items}}" wx:key="index">
+        <view class="detail">
+          <view class="author">{{item.title}}</view>
+          <view class="users">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="list">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="list-container">
+        <view class="left">
+          <view class="title">{{item.title}}</view>
+          <view class="url">{{item.url}}</view>
+        </view>
+        <view class="right">
+          <view class="right-border"></view>
+
+          <!-- l-button如果开启special 则button的样式就根据里面的样式调整为里面的view样式-->
+          <l-button special bindtap="copy" data-url="{{item.url}}">
+            <view class="inner" >
+              <view class="text">复</view>
+              <view class="text">制</view>
+            </view>
+          </l-button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="code">
+    <!-- catchlongpress 保存图片 -->
+    <view catchlongpress='saveQrcode'>
+      <image src="/imgs/qrcode.jpg" class="qrcode"></image>
+    </view>
+    <view class="title">
+      关注我的公众号: 西瓜阵地
+    </view>
+    <view class="detail">
+      长按图片保存二维码识别
+    </view>
+  </view>
+</view>

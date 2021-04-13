@@ -1,0 +1,20 @@
+<l-segment bind:linchange="onSegmentChange" active-key="{{activeKey}}"  
+l-class="l-segment" active-color="#157658" l-class-active="active" l-class-line="line">
+    <l-segment-item tab="未使用" key="1"></l-segment-item>
+    <l-segment-item tab="已使用" key="2"></l-segment-item>
+    <l-segment-item tab="已过期" key="3"></l-segment-item>
+</l-segment>
+ 
+<view class="containers" wx:if="{{!empty}}">
+    <l-loadmore show="{{bottomLoading}}" type="{{loadingType}}" loading-text="努力加载中..." end-text="—— 巨蜥开源 ——">
+        <view slot="content" class="container">
+            <block wx:for="{{items}}" wx:key="index">
+                <coupon bindtap="onShopping" class="item" coupon="{{item}}" status="{{activeKey}}"></coupon>
+            </block>
+        </view>
+    </l-loadmore>
+</view>
+
+<view class="empty">
+    <s-empty></s-empty>
+</view>

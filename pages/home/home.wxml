@@ -16,21 +16,6 @@
 			</block>
 		</swiper>
 
-		<!-- <view class="grid">
-        <view class="flex">
-            <view class="items" wx:for="{{grids}}" wx:key="index">
-                <view class="item" hover-class="none" hover-stop-propagation="false">
-                    <image class="item-img" src=" {{item.img}}">
-                       
-                    </image>
-                    <view class="item-title" >
-                        {{item.title}}
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view> -->
-
 		<category grids="{{grids}}" />
 
 		<image src="{{activity.entrance_img}}" class="activity" data-aname="a-2" bind:tap="onGoToCoupons"/>

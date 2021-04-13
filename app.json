@@ -11,7 +11,9 @@
     "pages/coupon/coupon",
     "pages/pay-success/pay-success",
     "pages/my-order/my-order",
-    "pages/order-detail/order-detail"
+    "pages/order-detail/order-detail",
+    "pages/my-coupon/my-coupon",
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -76,6 +78,8 @@
     "coupon-mini": "/components/coupon-mini/index",
     "coupon-picker": "/components/coupon-picker/index",
     "l-avatar":"/miniprogram_npm/lin-ui/avatar/index",
-    "l-list":"/miniprogram_npm/lin-ui/list/index"
+    "l-list":"/miniprogram_npm/lin-ui/list/index",
+    "l-countdown":"/miniprogram_npm/lin-ui/countdown/index",
+    "s-empty": "/components/empty/index"
   }
 }
