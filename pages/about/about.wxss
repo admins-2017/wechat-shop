@@ -44,6 +44,8 @@ page{
 
 .content .detail .users{
   margin-left: 60rpx;
+  font-size: 26rpx;
+  color: #157658;
 }
 
 .code {

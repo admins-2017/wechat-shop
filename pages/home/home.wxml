@@ -17,7 +17,7 @@
 		</swiper>
 
 		<category grids="{{grids}}" />
-
+ 
 		<image src="{{activity.entrance_img}}" class="activity" data-aname="a-2" bind:tap="onGoToCoupons"/>
 
 		<spu-scroll k-class="spu-scroll-class" theme="{{locationE}}" spu_list="{{locationESup}}" wx:if="{{locationE.online}}" />

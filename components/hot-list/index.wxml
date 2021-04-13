@@ -3,20 +3,18 @@
 
     </image>
     <view class=inner-contaienr">
-        <!-- 为image设置点击效果 外包一层view  
-            hover-class="none" 点击效果的class hover-stay-time="" 为动画时间 -->
+        <!-- 为image设置点击效果 外包一层view hover-class="none" 点击效果的class hover-stay-time="" 为动画时间 -->
         <view hover-class="react-hover" hover-stay-time="500">
-            <image class="left" src="{{leftItem.img}}">
+            <image class="left" src="{{leftItem.img}}" bindtap="onLeft">
             </image>
         </view>
         <view class="right-contaienr">
             <view hover-class="small-hover" hover-stay-time="500">
-                <image class="right" src="{{rightTopItem.img}}">
-
+                <image class="right" src="{{rightTopItem.img}}" bindtap="onRightTop">
                 </image>
             </view>
             <view hover-class="small-hover" hover-stay-time="500">
-                <image class="right" src="{{rightBottomItem.img}}">
+                <image class="right" src="{{rightBottomItem.img}}" bindtap="onRightBottom">
                 </image>
             </view>
 

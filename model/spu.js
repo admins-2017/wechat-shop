@@ -15,6 +15,12 @@ class Spu {
       url: `/spu/id/${spuId}/detail`
     })
   }
+
+  static async getRecommendSpu(){
+    return await Http.request({
+      url:"/spu/latest"
+    }) 
+  }
 }
 
 export {

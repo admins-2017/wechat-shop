@@ -6,9 +6,9 @@ Page({
    */
   data: {
     items:[
-      {"name":"康东伟 赵佳旺","title":"作者"},
+      {"name":"康东伟   赵佳旺","title":"作者"},
       {"name":"袁依群","title":"设计"},
-      {"name":"Lin UI 袁依群","title":"致谢"}
+      {"name":"LinUI   袁依群","title":"致谢"}
     ],
     list:[
       {"title":"小程序开源地址","url":"https://github.com/admins-2017/wechat-shop"},

@@ -1,6 +1,7 @@
 import { Caculator } from '../../model/caculator';
 import {Cart} from '../../model/cart'
 import {ShoppingWay} from "../../core/enum";
+import { Spu } from '../../model/spu';
 
 const cart = new Cart();
 Page({
@@ -22,9 +23,15 @@ Page({
    */
   async onLoad(options) {
     const cartData = await cart.getAllSkuFromServer()
+
+    const spuList = await Spu.getRecommendSpu()
+
     this.setData({
       cartItems:cartData.items
     })
+
+    wx.lin.renderWaterFlow(spuList.items)
+
   },
 
   /**

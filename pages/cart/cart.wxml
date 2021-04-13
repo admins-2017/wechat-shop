@@ -1,34 +1,46 @@
 <scroll-view scroll-y wx:if="{{!isEmpty}}" class="container">
-  <block wx:for="{{cartItems}}" wx:key="index">
-    <cart-item item="{{item}}" bind:deleteitem="onDeleteItem" bind:itemcheck="onSingleCheck"
-      bind:countfloat="onCountfloat"
-    ></cart-item>
-  </block>
-</scroll-view> 
+	<block wx:for="{{cartItems}}" wx:key="index">
+		<cart-item item="{{item}}" bind:deleteitem="onDeleteItem" bind:itemcheck="onSingleCheck" bind:countfloat="onCountfloat"></cart-item>
+	</block>
+
+	<view wx:if="{{!isEmpty}}" class="title">
+		<view class="detail">
+			- 为您推荐 -
+		</view>
+	</view>
+
+	<view wx:if="{{!isEmpty}}" class="waterflow">
+		<view class="home-bottom">
+			<!-- water-flow为抽象组件 在组件内部定义了传入组件的名称 
+            固定写法 generic:自定义组件的名称
+            l-water-flow-item 组件定义的传入名称
+            传入的组件必须是引入的组件
+         -->
+			<water-flow generic:l-water-flow-item="spu-preview"></water-flow>
+		</view>
+	</view>
+</scroll-view>
+
+
 
 <view class="empty-container" wx:if="{{isEmpty}}">
-<l-status-show show="{{isEmpty}}" 
-full-screen="{{false}}" 
-describe="购物车暂无商品" 
-bg-color="f3f3f3"
-type="cart"
->
-</l-status-show>
+	<l-status-show show="{{isEmpty}}" full-screen="{{false}}" describe="购物车暂无商品" bg-color="f3f3f3" type="cart">
+	</l-status-show>
 </view>
 
 <view wx:if="{{!isEmpty}}" class="total-container">
-  <view class="data-container">
-    <view class="checkbox-container">
-      <checkbox bind:check="onCheckAll" checked="{{allChecked}}"></checkbox>
-      <view class="all">全选</view>
-    </view>
-    <view class="price-container">
-      <view>合计</view>
-      <l-price value="{{totalPrice}}" color="#157658" count-size="32" unit-size="32">
-      </l-price> 
-    </view>
-  </view>
-  <view class="settlement-btn" bind:tap="onSelect" >
-    <view>结算({{totalSkuCount}})</view>
-  </view>
+	<view class="data-container">
+		<view class="checkbox-container">
+			<checkbox bind:check="onCheckAll" checked="{{allChecked}}"></checkbox>
+			<view class="all">全选</view>
+		</view>
+		<view class="price-container">
+			<view>合计</view>
+			<l-price value="{{totalPrice}}" color="#157658" count-size="32" unit-size="32">
+			</l-price>
+		</view>
+	</view>
+	<view class="settlement-btn" bind:tap="onSelect">
+		<view>结算({{totalSkuCount}})</view>
+	</view>
 </view>

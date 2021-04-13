@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "cart-item":"../../components/cart-item/index",
-    "checkbox":"../../components/checkbox/index"
+    "checkbox":"../../components/checkbox/index",
+    "water-flow":"/miniprogram_npm/lin-ui/water-flow/index"
   }
 }

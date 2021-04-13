@@ -11,7 +11,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    leftItem:null,
+    rightTopItem:null,
+    rightBottomItem:null
   },
 
   // 监听器 可以监听多个属性
@@ -45,6 +47,22 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onLeft(event){
+      wx.navigateTo({
+        url: `/pages/detail/detail?spuId=${this.data.leftItem.keyword}`,
+      })
+    },
 
+    onRightTop(event){
+      wx.navigateTo({
+        url: `/pages/detail/detail?spuId=${this.data.rightTopItem.keyword}`,
+      })
+    },
+
+    onRightBottom(event){
+      wx.navigateTo({
+        url: `/pages/detail/detail?spuId=${this.data.rightTopItem.keyword}`,
+      })
+    }
   }
 })
