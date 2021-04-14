@@ -1,0 +1,38 @@
+<view class="container">
+  <image class="top-image" src="{{data.internal_top_img}}" mode="widthFix">
+
+  </image>
+
+  <view class="list">
+    <block wx:for="{{spuList}}" wx:key="index">
+      <view class="content" wx:if="{{index % 2 !== 0}}" bindtap="goDetail" data-id="{{item.id}}">
+        <image src="{{item.img}}" class="spu-img">
+        </image>
+        <view class="detail">
+            <view class="top">
+              <view class="name">{{item.title}}</view>
+              <view class="title">{{item.subtitle}}</view>
+            </view>
+            <view class="botton">
+              <l-icon name="myright" color="#fff" size="38" l-class="sleeve"></l-icon>
+            </view> 
+        </view>
+      </view>
+      <view class="content" wx:if="{{index % 2 === 0}}" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="right-detail">
+            <view class="top">
+              <view class="name">{{item.title}}</view>
+              <view class="title">{{item.subtitle}}</view>
+            </view>
+            <view class="botton">
+              <l-icon name="myright" color="#fff" size="38" l-class="sleeve"></l-icon>
+            </view> 
+        </view>
+
+        <image src="{{item.img}}" class="right-spu-img">
+        </image>
+        
+      </view>
+    </block>
+  </view>
+</view>

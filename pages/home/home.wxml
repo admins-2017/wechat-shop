@@ -2,7 +2,7 @@
 <!-- slot="content" 使用插槽绑定 -->
 <l-loadmore show type="{{loadingType}}" end-text="真的一滴都不剩了..">
 	<view slot="content" class="main">
-		<image class="theme" src="{{locationA.entrance_img}}">
+		<image class="theme" src="{{locationA.entrance_img}}" bindtap="openTheme" data-theme="{{locationA}}">
 		</image>
 
 		<swiper class="swiper" indicator-active-color="#157658" indicator-dots autoplay circular>
@@ -22,11 +22,11 @@
 
 		<spu-scroll k-class="spu-scroll-class" theme="{{locationE}}" spu_list="{{locationESup}}" wx:if="{{locationE.online}}" />
 
-		<image src="{{loactionF.entrance_img}}" class="quality"></image>
+		<image src="{{loactionF.entrance_img}}" class="quality" bindtap="openTheme" data-theme="{{loactionF}}"></image>
 
 		<hot-list bannerList="{{locationG}}"></hot-list>
 
-		<image src="{{locationH.entrance_img}}" class="fashion"></image>
+		<image src="{{locationH.entrance_img}}" class="fashion" bindtap="openTheme" data-theme="{{locationH}}"></image>
 
 		<view class="home-bottom">
 			<image class="bottom-title" src="../../imgs/home/title@interest.png"></image>

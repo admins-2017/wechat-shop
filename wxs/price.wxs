@@ -1,5 +1,5 @@
 /**
- * 主价格
+ * 主价格 
  */
 function mainPrice(price,discountPrice){
   // 如果折扣价格不存在

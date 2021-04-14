@@ -19,6 +19,13 @@ class Theme {
         })
     }
 
+    async getThemesByName(name) {
+        this.themes = await Http.request({
+            url: "/theme/by/names",
+            data: { name }
+        })
+    }
+
     // 获取首页顶部图片 callback为返回值
     // async修饰 将函数异步执行
     async getHomeLocationTopImage() {

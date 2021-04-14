@@ -73,6 +73,7 @@ Page({
     const activity = await Activity.getActivityEntranceImg();
     const locationG = await Banner.getHomeLocationGBanner();
     const locationH = await theme.getHomeLocationH();
+
     this.setData({
       locationA,
       bannerList,
@@ -110,6 +111,13 @@ Page({
       })
     }
   },
+
+  openTheme(event){
+    const themeName = event.currentTarget.dataset.theme.name
+    wx.reLaunch({
+      url: `/pages/themes/themes?name=${themeName}`
+    })
+  }
 
 });
 

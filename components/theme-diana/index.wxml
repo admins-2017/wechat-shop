@@ -1,0 +1,26 @@
+<wxs src="../../wxs/price.wxs" module="price"></wxs>
+
+<view class="container">
+  <image src="{{data.internal_top_img}}" class="top-image" mode="widthFix"></image>
+  <block wx:for="{{spuList}}" wx:key="index">
+    <view class="content" >
+      <image src="{{item.img}}" class="content-img" mode="aspectFill"></image>
+      <view class="detail">
+        <view class="top">
+          <view class="name">{{item.title}}</view>
+          <view class="title">{{item.subtitle}}</view>
+        </view>
+        <view class="bottom">
+          <view class="price">
+            <l-price color="#157658" value-size="30" unit-size="30"
+                value="{{price.mainPrice(item.price,item.discount_price)}}">
+            </l-price>
+          </view>
+          <view class="botton" bindtap="goDetail" data-id="{{item.id}}">
+            立即购买
+          </view>
+        </view>
+      </view>  
+    </view>
+  </block>
+</view>

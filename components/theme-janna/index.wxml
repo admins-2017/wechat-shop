@@ -1,0 +1,39 @@
+<wxs src="../../wxs/price.wxs" module="price"></wxs>
+
+<view class="container">
+  <image src="{{data.internal_top_img}}" class="top-image" mode="widthFix">
+
+  </image>
+  <view class="desc">
+    <block wx:for="{{titles}}" wx:key="index">
+        <view class="desc-title">
+          {{item}}
+        </view>
+    </block>
+  </view>
+  <view class="spus">
+    <block wx:for="{{spuList}}" wx:key="index">
+      <view class="spu-detail" bindtap="goDetail" data-id="{{item.id}}">
+        <image class="left" src="{{item.img}}" mode="scaleToFill" style="width: 250rpx;height: 250rpx;">
+        </image>
+        <view class="right">
+          <view class="title">
+            {{item.title}}
+          </view>
+          <view class="subtitle">
+            {{item.subtitle}}
+          </view>
+          <view class="price">
+            <!-- 调用wxs中的方法来判断主价格和划线价格 -->
+            <l-price color="#e01d1d" value-size="30" unit-size="30"
+                value="{{price.mainPrice(item.price,item.discount_price)}}">
+            </l-price>
+            <!-- {{data.discount_price?true:false}} 判断是否存在折扣价格 存在则显示划线价格 -->
+            <l-price class="discount" color="#999" value-size="26" unit-size="26" wx:if="{{item.discount_price?true:false}}" deleted
+                value="{{price.slashedPrice(item.price,item.discount_price)}}"></l-price>
+        </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

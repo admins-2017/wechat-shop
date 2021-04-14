@@ -82,7 +82,6 @@ Page({
   },
 
   onShopping(event){
-    console.log("执行onShopping")
     const sku = event.detail.sku;
     const count = event.detail.skuCount;
     // 判断是否做添加购物车操作

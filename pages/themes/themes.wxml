@@ -1,0 +1,18 @@
+<view class="container">
+  <view wx:if="{{theme.tpl_name === 'camille'}}">
+    <camille data="{{theme}}" spuList="{{spuList}}"></camille>
+  </view>
+
+  <view wx:if="{{theme.tpl_name === 'irelia'}}">
+    <irelia data="{{theme}}" spuList="{{spuList}}"></irelia>
+  </view>
+
+
+  <view wx:if="{{theme.tpl_name === 'diana'}}">
+    <diana data="{{theme}}" spuList="{{spuList}}"></diana>
+  </view>
+
+  <view wx:if="{{theme.tpl_name === 'janna'}}">
+    <janna data="{{theme}}" spuList="{{spuList}}"></janna>
+  </view>
+</view>

@@ -13,7 +13,8 @@
     "pages/my-order/my-order",
     "pages/order-detail/order-detail",
     "pages/my-coupon/my-coupon",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/themes/themes"
   ],
   "window":{
     "backgroundTextStyle":"light",

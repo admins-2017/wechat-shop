@@ -66,6 +66,12 @@
           "pathName": "pages/about/about",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/themes/themes",
+          "pathName": "pages/themes/themes",
+          "query": "name=t-3",
+          "scene": null
         }
       ]
     }
