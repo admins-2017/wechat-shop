@@ -9,8 +9,7 @@
 			<!-- block 插槽 只是一个占位符 -->
 			<block wx:for="{{bannerList.items}}" wx:key="index">
 				<swiper-item class="">
-					<image class="swiper" src="{{item.img}}">
-
+					<image class="swiper" src="{{item.img}}" bindtap="goThemeOrDetail" data-item="{{item}}">
 					</image>
 				</swiper-item>
 			</block>

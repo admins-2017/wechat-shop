@@ -14,7 +14,8 @@
     "pages/order-detail/order-detail",
     "pages/my-coupon/my-coupon",
     "pages/about/about",
-    "pages/themes/themes"
+    "pages/themes/themes",
+    "pages/banner/banner"
   ],
   "window":{
     "backgroundTextStyle":"light",

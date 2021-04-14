@@ -1,0 +1,25 @@
+<view class="container">
+  <image class="top-image" src="{{banner.img}}">
+  </image>
+  <view class="content">
+    <block wx:for="{{items}}" wx:key="index">
+      <view class="detail">
+        <image class="left" src="{{item.img}}">
+        </image>
+        <view class="right">
+          <view class="top">
+            {{item.title}}
+          </view>
+          <view class="bottom">
+            <view class="price">
+              299
+            </view>
+            <view class="button">
+              立即购买
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

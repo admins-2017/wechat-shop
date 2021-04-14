@@ -22,6 +22,8 @@ Component({
     // 参数bannerList 和 组件属性中的bannerList是一样的 表示监听结果
     // 'bannerList','theme':function(bannerList,theme){ 监听多个属性 
     'bannerList':function(bannerList){
+      console.log('banner')
+      console.log(bannerList)
       // 如果bannerList不存在 则不做处理
       if(!bannerList){
         return
@@ -34,7 +36,7 @@ Component({
       const leftItem = bannerList.items.find(item => item.name === 'left');
       const rightTopItem= bannerList.items.find(item => item.name === 'right-top');
       const rightBottomItem= bannerList.items.find(item => item.name === 'right-bottom');
-      
+       
       this.setData({
         leftItem,
         rightTopItem,
@@ -62,6 +64,15 @@ Component({
     onRightBottom(event){
       wx.navigateTo({
         url: `/pages/detail/detail?spuId=${this.data.rightTopItem.keyword}`,
+      })
+    },
+
+    goThemeDetail(event){
+      console.log(event)
+      console.log(this.properties.bannerList)
+      const bannerName = this.properties.bannerList.name
+      wx.navigateTo({
+        url: `/pages/banner/banner`
       })
     }
   }

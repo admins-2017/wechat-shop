@@ -1,6 +1,5 @@
 <view class="contaienr">
-    <image class="title" src="{{bannerList.img}}">
-
+    <image class="title" src="/imgs/home/banner@title.png" bindtap="goThemeDetail">
     </image>
     <view class=inner-contaienr">
         <!-- 为image设置点击效果 外包一层view hover-class="none" 点击效果的class hover-stay-time="" 为动画时间 -->

@@ -117,6 +117,22 @@ Page({
     wx.reLaunch({
       url: `/pages/themes/themes?name=${themeName}`
     })
+  },
+
+  goThemeOrDetail(event){
+    const item = event.currentTarget.dataset.item
+    console.log(item)
+    const keyword = item.keyword
+    if(item.type == 3){
+      wx.reLaunch({
+        url: `/pages/themes/themes?name=${keyword}`
+      })
+    }else{
+      wx.navigateTo({
+        url: `/pages/detail/detail?spuId=${keyword}`
+      })
+    }
+    
   }
 
 });
