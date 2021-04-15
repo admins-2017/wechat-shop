@@ -54,7 +54,6 @@ Component({
     // 监听数量改变的事件
     onSelectCount(event){
       let newCount = event.detail.count
-      console.log(newCount)
       cart.replaceItemCount(this.properties.item.skuId,newCount)
       // 抛出事件
       this.triggerEvent('countfloat',{
@@ -75,7 +74,6 @@ Component({
 
     // 修改checkbox状态
     checkItem(event){
-      console.log("执行checkItem")
       // 获取修改后的状态
       const checked = event.detail.checked
       // 将缓存中的item状态改变

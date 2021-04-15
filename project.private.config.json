@@ -72,6 +72,18 @@
           "pathName": "pages/themes/themes",
           "query": "name=t-3",
           "scene": null
+        },
+        {
+          "name": "pages/banner/banner",
+          "pathName": "pages/banner/banner",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/spu-list/spu-list",
+          "pathName": "pages/spu-list/spu-list",
+          "query": "cid=2&type=root_category",
+          "scene": null
         }
       ]
     }

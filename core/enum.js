@@ -16,7 +16,6 @@ const SpuListType={
   ROOT_CATEGORY:'root_category',
   THEME:'theme',
   LATEST:'latest'
-
 }
 
 const OrderExceptionType = {

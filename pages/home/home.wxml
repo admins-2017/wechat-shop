@@ -37,5 +37,4 @@
 			<water-flow generic:l-water-flow-item="spu-preview"></water-flow>
 		</view>
 	</view>
-
 </l-loadmore>

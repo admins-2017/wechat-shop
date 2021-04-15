@@ -30,7 +30,6 @@ Component({
     },
     //响应点击事件
     onAddToCart(event){
-      console.log("执行onAddToCart")
       this.triggerEvent('addtocart',{
       })
     },

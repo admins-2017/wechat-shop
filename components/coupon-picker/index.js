@@ -17,7 +17,6 @@ Component({
             }
             const couponsView = this.convertToView(coupons)
             const satisfactionCount = this.getSatisfactionCount(coupons)
-            console.log(couponsView)
             this.setData({
                 _coupons: couponsView,
                 satisfactionCount
@@ -78,7 +77,6 @@ Component({
          * @param {*} event 
          */
         onChange(event) {
-            console.log(event)
             const currentKey = event.detail.currentKey
             const key = event.detail.key
             this.setData({

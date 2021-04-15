@@ -17,11 +17,9 @@ Component({
 
   observers:{
     data: function(data){
-      console.log(data)
     },
 
     spuList:function(spuList){
-      console.log(spuList)
     }
   },
 

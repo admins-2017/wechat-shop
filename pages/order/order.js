@@ -67,7 +67,6 @@ Page({
     // 根据分类获取我的优惠券
     const coupons = await Coupon.getMySelfWithCategory()
     const couponList = this.packageCouponBOList(coupons,order)
-    console.log(couponList)
     this.setData({
       couponList,
       orderItems,
@@ -143,7 +142,6 @@ Page({
     }
     // 如果订单提交成功 删除购物车中已提交的商品
     if (this.data.shoppingWay === ShoppingWay.CART) {
-        console.log("执行删除")
         cart.removeCheckedItems()
     }
 

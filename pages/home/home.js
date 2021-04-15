@@ -121,7 +121,6 @@ Page({
 
   goThemeOrDetail(event){
     const item = event.currentTarget.dataset.item
-    console.log(item)
     const keyword = item.keyword
     if(item.type == 3){
       wx.reLaunch({

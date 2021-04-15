@@ -1,2 +1,13 @@
-<!--pages/spu-list/spu-list.wxml-->
-<text>pages/spu-list/spu-list.wxml</text>
+<l-loadmore show="{{loadmore}}" type="{{loadingType}}" loading-text="正在加载..." end-text="---到底了---">
+
+<view class="container" wx:if="{{show}}"  slot="content">
+	<water-flow generic:l-water-flow-item="spu-preview"></water-flow>
+</view>
+</l-loadmore>
+
+<view class="prompt" wx:if="{{!show}}">
+  <image src="/imgs/status/network.png" class="error-img"></image>
+  <view class="title">
+    该分类暂时没有商品
+  </view>
+</view>

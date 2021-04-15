@@ -53,7 +53,6 @@ Component({
       }catch(e){
         console.error(e)
       }
-      console.log(res)
       // 判断用户是否拒绝获取地址 如果选择了地址则绑定变量
       if(res){
         this.setData({

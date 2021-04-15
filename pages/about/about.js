@@ -43,17 +43,14 @@ Page({
    * @param {*}} e 
    */
   saveQrcode(e){
-    console.log(e)
     wx.showModal({
       title: '提示',
       content: '确定要保存这张图片吗？',
       success: function (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
           wx.getImageInfo({
             src: '/imgs/qrcode.jpg',
             success: function (res) {
-              console.log(res);
               var path = res.path;
               wx.saveImageToPhotosAlbum({
                 filePath: path,

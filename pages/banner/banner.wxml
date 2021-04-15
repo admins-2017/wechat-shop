@@ -12,9 +12,11 @@
           </view>
           <view class="bottom">
             <view class="price">
-              299
+              <l-price color="#157658" value-size="30" unit-size="26"
+                value="{{item.price}}">
+              </l-price>
             </view>
-            <view class="button">
+            <view class="button" bindtap="goDetail" data-keyword="{{item.keyword}}">
               立即购买
             </view>
           </view>

@@ -1,4 +1,5 @@
-// components/category-grid/index.js
+import { SpuListType } from '../../core/enum'
+
 Component({
   /**
    * 组件的属性列表
@@ -13,10 +14,24 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+
+  },
+
+  observers:{
+    grids:function(grids){
+    }
+  },
 
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    goCategoryByRoot(event){
+      const categoryId = event.currentTarget.dataset.id
+      wx.navigateTo({
+        url: `/pages/spu-list/spu-list?cid=${categoryId}&type=${SpuListType.ROOT_CATEGORY}`,
+      })
+    }
+  },
 });

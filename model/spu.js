@@ -21,6 +21,15 @@ class Spu {
       url:"/spu/latest"
     }) 
   }
+
+  static async getSpuListByCategory(categoryId,isRoot){
+    return await Http.request({
+      url: `/spu/by/category/${categoryId}`,
+      data:{
+        'is_root':isRoot
+      }
+    })
+  }
 }
 
 export {

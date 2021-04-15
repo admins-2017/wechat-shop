@@ -205,7 +205,6 @@ Component({
      * @param {*} event 
      */
     onBuyOrCart(event){
-      console.log("执行onBuyOrCart")
       //判断该商品是否存在规格   
       if(Spu.inNoSpec(this.properties.spu)){
         this.shoppingNoSpec()
@@ -216,7 +215,6 @@ Component({
     },
 
     shoppingVarious(){
-      console.log("执行shoppingVarious")
       const intact = this.data.judger.isSkuIntact();
       // 判断用户是否选中完整的sku
       if(!intact){
@@ -233,7 +231,6 @@ Component({
     },
 
     shoppingNoSpec(){
-      console.log("执行shoppingNoSpec")
       this._triggerShoppingEvent(this.getNoSpecSku())
     },
 

@@ -16,12 +16,18 @@ Page({
    */
   onLoad:async function (options) {
     const banner = await Banner.getHomeLocationGBanner();
-    console.log(banner)
     const items = banner.items 
     this.setData({
       banner,
       items
     })
   },
+
+  goDetail(event){
+    const spuId = event.currentTarget.dataset.keyword
+    wx.navigateTo({
+      url: `/pages/detail/detail?spuId=${spuId}`,
+    })
+  }
 
 })

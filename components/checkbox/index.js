@@ -19,7 +19,6 @@ Component({
    */
   methods: {
     onCheck(event){
-      console.log('执行oncheck')
       // 获取状态
       let checked = this.properties.checked
       // 对状态进行取反并重新赋值

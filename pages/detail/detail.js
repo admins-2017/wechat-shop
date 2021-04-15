@@ -17,13 +17,10 @@ Page({
   },
 
   addToCart(event){
-    console.log("执行addToCart")
     this.setData({
       showRealm:true,
       orderWay:ShoppingWay.CART
     })
-    console.log(this.data.orderWay);
-    console.log(this.data.showRealm);
 
   },
 

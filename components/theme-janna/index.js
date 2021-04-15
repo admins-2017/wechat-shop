@@ -17,7 +17,6 @@ Component({
  
   observers:{
     data: function(data){
-      console.log(data)
       // const spuList = data.spu_list
       const title = data.description
       const titles = title.split('#')

@@ -26,13 +26,7 @@ Component({
             if (!item) {
                 return
             }
-            console.log("items")
-            console.log(item)
-
             const order = new OrderDetail(item)
-
-            console.log("order")
-            console.log(order)
 
             this.setData({
                 _item:order
@@ -49,7 +43,6 @@ Component({
      */
     methods: {
         onGotoDetail(event) {
-            console.log(this.data._item)
             const oid = this.data._item.id
             wx.navigateTo({
                 url:`/pages/order-detail/order-detail?oid=${oid}`
@@ -81,7 +74,6 @@ Component({
                 res = await Payment.pay(payParams)
                 // payStatus = OrderStatus.PAID
                 wx.lin.hideLoading()
-                console.log(res)
                 this.triggerEvent('paysuccess',{
                     oid
                 })
