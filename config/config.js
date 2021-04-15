@@ -1,6 +1,6 @@
 const config = {
     appkey: "ma6OHiFMc6gVyd5h",
-    baseUrl:"http://www.kangdongwei.cn:8888/v1"
+    baseUrl:"https://www.kangdongwei.cn:80/v1/"
 };
 
 export {
